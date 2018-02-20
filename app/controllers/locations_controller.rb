@@ -1,5 +1,5 @@
-class LocationController < ApplicationController
- 	before_action :authenticate_user!
+class LocationsController < ApplicationController
+	 	before_action :authenticate_user!
 	def index
 		@locations = Location.all.order('Created_at DESC')
 	end
@@ -13,7 +13,7 @@ class LocationController < ApplicationController
 	end
 
 	def create
-		@location = current_user.locations.new(location_params)
+		@location = current_user.location.new(location_params)
 
 		@location.save
 			redirect_to @location

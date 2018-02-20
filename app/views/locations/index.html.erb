@@ -1,0 +1,4 @@
+<% @locations.each do |location| %>
+	<h2><%= link_to location.name, location %></h2>
+	<p><%= location.created_at.strftime("%B, %d, %Y") %></p>
+<% end %>
