@@ -5,29 +5,26 @@
 		<h3> <%= @location.name %> </h3>
 
 		<p>
-			Submitted <%=time_ago_in_words(@location.created_at)%> Ago
 			
 
 			<%  if (user_signed_in? &&(current_user.id == @location.user_id)) %>
 				
 
-				| <%= link_to "Edit", (@location) %>
-				| <%= link_to "Delete", location_path(@location), method: :delete,
+				 <%= link_to "Edit", (@location) %>
+				 <%= link_to "Delete", location_path(@location), method: :delete,
 				data: {confirm: 'Are you sure?'} %>
 
 			<% end %>
 
 		</p>
 
-		<p> <%= sanitize @location.name %></p>
+
 		<div>
-			<h5> <%= @location.recordings.count %> Recordings
-			</h5>
 			<hr>
 			<%= render @location.recordings %>
 
 
-			<h6>Add a recording </h6>
+
 
 			<%= render 'recordings/form'  %>
 

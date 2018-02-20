@@ -27,7 +27,7 @@ class LocationsController < ApplicationController
 	def update
 		@location = Location.find(params[:id])
 
-		if @location.update(post_params)
+		if @location.update(location_params)
 		  redirect_to @location
 		else
 		  render 'edit'
