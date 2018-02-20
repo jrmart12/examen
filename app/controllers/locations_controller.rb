@@ -1,5 +1,6 @@
 class LocationsController < ApplicationController
-	 	before_action :authenticate_user!
+	before_action :authenticate_user! 
+	
 	def index
 		@locations = Location.all.order('Created_at DESC')
 	end
@@ -13,10 +14,10 @@ class LocationsController < ApplicationController
 	end
 
 	def create
-		@location = current_user.location.new(location_params)
+		@location = current_user.locations.new(location_params)
 
 		@location.save
-			redirect_to @location
+		  redirect_to @location
 	end 
 
 	def show
@@ -27,9 +28,9 @@ class LocationsController < ApplicationController
 		@location = Location.find(params[:id])
 
 		if @location.update(post_params)
-			redirect_to @location
+		  redirect_to @location
 		else
-			render 'edit'
+		  render 'edit'
 		end
 	end
 
@@ -44,5 +45,4 @@ class LocationsController < ApplicationController
 		def location_params
 			params.require(:location).permit(:name)
 		end
-  
 end

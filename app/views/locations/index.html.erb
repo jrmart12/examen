@@ -1,4 +1,15 @@
-<% @locations.each do |location| %>
-	<h2><%= link_to location.name, location %></h2>
-	<p><%= location.created_at.strftime("%B, %d, %Y") %></p>
+<% @locations.each do |location| %> 
+<strong></strong>
+	<h4>Location: <%= location.name%></h4> <%= link_to "Edit", location %> | <%= link_to "Delete", location, method: :delete, data: {confirm: 'Are you sure?'} %>
+
+	<% location.recordings.each do |recording|%> 
+	<strong></strong>
+	<div class= "row">
+	<div class="col-md-offset-1">
+	<p> Temp: <%= recording.temp%></p>
+	<p> Status: <%= recording.status%></p>
+
+	</div>
+	</div>
+	<% end %>
 <% end %>

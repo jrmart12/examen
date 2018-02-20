@@ -6,4 +6,11 @@
         <span class="icon-bar"></span>
       </button>
      <%= link_to 'CLIMATE APP', root_path, class: 'navbar-brand' %>
+          <li><a href="#"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></a></li>
+        </div>
+    
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Locations", root_path %></li>
     </div>

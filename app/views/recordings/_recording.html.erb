@@ -1,0 +1,15 @@
+<strong> <%= @location.name %>  <%  if (user_signed_in? &&(current_user.id == @location.user_id)) %> 
+				
+				
+				| <%= link_to "Edit", edit_location_path(@location) %>
+				| <%= link_to "Delete", location_path(@location), method: :delete,
+				data: {confirm: 'Are you sure?'} %>
+
+			<% end %></strong>
+
+<div class="well">
+	<%= recording.temp %>
+	<%= recording.status %>
+	<span class ="pull-right"> <%= time_ago_in_words(recording.created_at) %> Ago </span>
+
+</div>
